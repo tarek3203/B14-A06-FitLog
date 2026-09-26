@@ -5,7 +5,7 @@ to read the sets, reps and full instructions, then add it to today's plan or
 save it for later. The plan page keeps a running total of how much work you have
 lined up.
 
-**Live site:** _add after deploy_
+**Live site:** https://b14-a06-fitlog.netlify.app
 
 ## Technology used
 
