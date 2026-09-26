@@ -1,5 +1,17 @@
-const HomePage = () => {
-  return <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6" />;
+import Hero from "@/components/home/Hero";
+import Library from "@/components/home/Library";
+import { getWorkouts } from "@/lib/api";
+
+const HomePage = async () => {
+  const workouts = await getWorkouts();
+
+  return (
+    <>
+      <Hero />
+
+      <Library workouts={workouts} />
+    </>
+  );
 };
 
 export default HomePage;
