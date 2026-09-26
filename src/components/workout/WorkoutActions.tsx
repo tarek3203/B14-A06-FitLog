@@ -16,7 +16,7 @@ const WorkoutActions = ({ workout }: { workout: IWorkout }) => {
         type="button"
         onClick={() => addToPlan(workout)}
         disabled={inPlan}
-        className="display inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm text-ink transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+        className="display inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-acid px-6 py-3 text-sm text-ink transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {inPlan ? <FiCheck className="text-lg" /> : <FiPlus className="text-lg" />}
         {inPlan ? "Added to today's plan" : "Add to today's plan"}
@@ -26,7 +26,7 @@ const WorkoutActions = ({ workout }: { workout: IWorkout }) => {
         type="button"
         onClick={() => saveForLater(workout)}
         disabled={saved}
-        className="display inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-line px-6 py-3 text-sm text-white transition hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-60"
+        className="display inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-line px-6 py-3 text-sm text-white transition hover:border-acid hover:text-acid disabled:cursor-not-allowed disabled:opacity-60"
       >
         {saved ? <FiCheck className="text-lg" /> : <FiBookmark className="text-lg" />}
         {saved ? "Saved" : "Save for later"}

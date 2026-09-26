@@ -61,7 +61,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
             {workout.muscleGroups.map((group) => (
               <span
                 key={group}
-                className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-sm text-accent"
+                className="rounded-full border border-acid/40 bg-acid/10 px-3 py-1 text-sm text-acid"
               >
                 {group}
               </span>
@@ -93,7 +93,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
             <ol className="mt-4 space-y-3">
               {workout.instructions.map((step, index) => (
                 <li key={step} className="flex gap-3 text-muted">
-                  <span className="display flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-xs text-ink">
+                  <span className="display flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-acid text-xs text-ink">
                     {index + 1}
                   </span>
 

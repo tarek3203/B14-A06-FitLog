@@ -23,7 +23,7 @@ const Navbar = () => {
   const linkClass = (href: string) =>
     `display text-sm tracking-widest transition-colors ${
       isActive(href)
-        ? "text-accent border-b-2 border-accent pb-1"
+        ? "text-acid border-b-2 border-acid pb-1"
         : "text-muted hover:text-white"
     }`;
 
@@ -40,7 +40,7 @@ const Navbar = () => {
             className="h-8 w-8 object-contain"
           />
           <span className="display text-xl text-white">
-            Fit<span className="text-accent">Log</span>
+            Fit<span className="text-acid">Log</span>
           </span>
         </Link>
 
@@ -59,14 +59,14 @@ const Navbar = () => {
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/my-plan"
-            className="display rounded-full bg-accent px-4 py-1.5 text-xs text-ink transition hover:brightness-110"
+            className="display rounded-full bg-acid px-4 py-1.5 text-xs text-ink transition hover:brightness-110"
           >
             Plan {plan.length}
           </Link>
 
           <Link
             href="/my-plan"
-            className="display rounded-full border border-line px-4 py-1.5 text-xs text-white transition hover:border-accent hover:text-accent"
+            className="display rounded-full border border-line px-4 py-1.5 text-xs text-white transition hover:border-acid hover:text-acid"
           >
             Saved {saved.length}
           </Link>

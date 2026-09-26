@@ -7,7 +7,7 @@ const WorkoutCard = ({ workout }: { workout: IWorkout }) => {
   return (
     <Link
       href={`/workout/${workout.id}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition hover:-translate-y-1 hover:border-accent"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition hover:-translate-y-1 hover:border-acid"
     >
       {/* Illustration */}
       <div className="relative h-52 w-full overflow-hidden bg-raised">
@@ -26,7 +26,7 @@ const WorkoutCard = ({ workout }: { workout: IWorkout }) => {
           {workout.muscleGroups.map((group) => (
             <span
               key={group}
-              className="display rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-[11px] tracking-widest text-accent"
+              className="display rounded-full border border-acid/40 bg-acid/10 px-3 py-1 text-[11px] tracking-widest text-acid"
             >
               {group}
             </span>
@@ -42,17 +42,17 @@ const WorkoutCard = ({ workout }: { workout: IWorkout }) => {
         {/* Stats row */}
         <div className="mt-auto flex items-center gap-4 border-t border-line pt-4 text-sm text-muted">
           <span className="flex items-center gap-1.5">
-            <FiClock className="text-accent" />
+            <FiClock className="text-acid" />
             {workout.duration} min
           </span>
 
           <span className="flex items-center gap-1.5">
-            <FiZap className="text-accent" />
+            <FiZap className="text-acid" />
             {workout.caloriesBurned} kcal
           </span>
 
           <span className="flex items-center gap-1.5">
-            <FiStar className="text-accent" />
+            <FiStar className="text-acid" />
             {workout.rating}
           </span>
         </div>

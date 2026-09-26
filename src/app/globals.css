@@ -4,12 +4,12 @@
 }
 
 @theme {
-  /* FitLog palette: near-black surfaces with a single acid-lime accent. */
+  /* FitLog palette: near-black surfaces with a single acid-lime highlight. */
   --color-ink: #08090a;
   --color-surface: #111214;
   --color-raised: #17181b;
   --color-line: #24262b;
-  --color-accent: #ccff00;
+  --color-acid: #ccff00;
   --color-muted: #8b9098;
 
   --font-display: var(--font-oswald);

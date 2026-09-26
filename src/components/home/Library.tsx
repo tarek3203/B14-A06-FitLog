@@ -56,7 +56,7 @@ const Library = ({ workouts }: { workouts: IWorkout[] }) => {
               id="sort-by"
               value={sortBy}
               onChange={(event) => setSortBy(event.target.value as SortKey)}
-              className="w-full appearance-none rounded-full border border-line bg-surface px-5 py-2.5 pr-10 text-sm text-white outline-none transition focus:border-accent"
+              className="w-full appearance-none rounded-full border border-line bg-surface px-5 py-2.5 pr-10 text-sm text-white outline-none transition focus:border-acid"
             >
               {sortOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -65,7 +65,7 @@ const Library = ({ workouts }: { workouts: IWorkout[] }) => {
               ))}
             </select>
 
-            <FiChevronDown className="pointer-events-none absolute bottom-3 right-4 text-accent" />
+            <FiChevronDown className="pointer-events-none absolute bottom-3 right-4 text-acid" />
           </div>
         </div>
 

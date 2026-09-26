@@ -20,7 +20,7 @@ const PlanCard = ({ workout, showMarkAsDone, onRemove }: IPlanCardProps) => {
   return (
     <article
       className={`flex flex-col gap-4 rounded-2xl border bg-surface p-4 sm:flex-row sm:items-center ${
-        done ? "border-accent/60" : "border-line"
+        done ? "border-acid/60" : "border-line"
       }`}
     >
       {/* Thumbnail */}
@@ -40,7 +40,7 @@ const PlanCard = ({ workout, showMarkAsDone, onRemove }: IPlanCardProps) => {
           <h3 className="display text-lg text-white">{workout.name}</h3>
 
           {done && (
-            <span className="display rounded-full bg-accent px-3 py-0.5 text-[11px] tracking-widest text-ink">
+            <span className="display rounded-full bg-acid px-3 py-0.5 text-[11px] tracking-widest text-ink">
               Done
             </span>
           )}
@@ -50,17 +50,17 @@ const PlanCard = ({ workout, showMarkAsDone, onRemove }: IPlanCardProps) => {
 
         <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-muted">
           <span className="flex items-center gap-1.5">
-            <FiClock className="text-accent" />
+            <FiClock className="text-acid" />
             {workout.duration} min
           </span>
 
           <span className="flex items-center gap-1.5">
-            <FiZap className="text-accent" />
+            <FiZap className="text-acid" />
             {workout.caloriesBurned} kcal
           </span>
 
           <span className="flex items-center gap-1.5">
-            <FiStar className="text-accent" />
+            <FiStar className="text-acid" />
             {workout.rating}
           </span>
         </div>
@@ -70,7 +70,7 @@ const PlanCard = ({ workout, showMarkAsDone, onRemove }: IPlanCardProps) => {
       <div className="flex flex-wrap items-center gap-2">
         <Link
           href={`/workout/${workout.id}`}
-          className="display rounded-full border border-line px-4 py-2 text-xs text-white transition hover:border-accent hover:text-accent"
+          className="display rounded-full border border-line px-4 py-2 text-xs text-white transition hover:border-acid hover:text-acid"
         >
           View Details
         </Link>
@@ -80,7 +80,7 @@ const PlanCard = ({ workout, showMarkAsDone, onRemove }: IPlanCardProps) => {
             type="button"
             onClick={() => markAsDone(workout)}
             disabled={done}
-            className="display inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-xs text-ink transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+            className="display inline-flex items-center gap-1.5 rounded-full bg-acid px-4 py-2 text-xs text-ink transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
           >
             <FiCheck className="text-sm" />
             Mark as Done

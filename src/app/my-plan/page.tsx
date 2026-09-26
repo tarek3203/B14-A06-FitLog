@@ -45,7 +45,7 @@ const MyPlanPage = () => {
             className="rounded-2xl border border-line bg-surface p-5"
           >
             <div className="flex items-center gap-2 text-muted">
-              <stat.icon className="text-accent" />
+              <stat.icon className="text-acid" />
 
               <span className="display text-xs tracking-widest">
                 {stat.label}
@@ -66,7 +66,7 @@ const MyPlanPage = () => {
             onClick={() => setActiveTab(tab.key)}
             className={`display -mb-px border-b-2 px-5 py-3 text-sm transition ${
               activeTab === tab.key
-                ? "border-accent text-accent"
+                ? "border-acid text-acid"
                 : "border-transparent text-muted hover:text-white"
             }`}
           >
@@ -79,7 +79,7 @@ const MyPlanPage = () => {
       <div className="mt-8">
         {!ready ? (
           <div className="flex flex-col items-center gap-4 py-16">
-            <span className="h-10 w-10 animate-spin rounded-full border-4 border-line border-t-accent" />
+            <span className="h-10 w-10 animate-spin rounded-full border-4 border-line border-t-acid" />
 
             <p className="display text-sm tracking-widest text-muted">
               Loading workouts…
@@ -106,7 +106,7 @@ const MyPlanPage = () => {
 
             <Link
               href="/"
-              className="display mt-7 inline-block rounded-full bg-accent px-7 py-3 text-sm text-ink transition hover:brightness-110"
+              className="display mt-7 inline-block rounded-full bg-acid px-7 py-3 text-sm text-ink transition hover:brightness-110"
             >
               Go to workouts
             </Link>
