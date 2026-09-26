@@ -31,13 +31,12 @@ const MyPlanPage = () => {
 
   return (
     <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-      <h1 className="display text-3xl text-white sm:text-4xl">My Plan</h1>
+      <h1 className="display text-3xl text-white sm:text-4xl">MY PLAN</h1>
 
       <p className="mt-2 text-muted">
         Cap of five lifts for today. Finish them, then load more.
       </p>
 
-      {/* Metrics summary */}
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {stats.map((stat) => (
           <div
@@ -57,7 +56,6 @@ const MyPlanPage = () => {
         ))}
       </div>
 
-      {/* Tabs */}
       <div className="mt-10 flex gap-2 border-b border-line">
         {tabs.map((tab) => (
           <button
@@ -75,7 +73,6 @@ const MyPlanPage = () => {
         ))}
       </div>
 
-      {/* List / loading / empty state */}
       <div className="mt-8">
         {!ready ? (
           <div className="flex flex-col items-center gap-4 py-16">
@@ -98,7 +95,7 @@ const MyPlanPage = () => {
           </div>
         ) : (
           <div className="rounded-3xl border border-dashed border-line bg-surface px-6 py-16 text-center">
-            <h2 className="display text-2xl text-white">Nothing here yet</h2>
+            <h2 className="display text-2xl text-white">NOTHING HERE YET</h2>
 
             <p className="mx-auto mt-3 max-w-md text-muted">
               Browse the library and add a lift to get today moving.

@@ -8,7 +8,6 @@ import { IWorkout } from "@/types/workout.type";
 
 interface IPlanCardProps {
   workout: IWorkout;
-  /** The Saved tab has nothing to mark done — only the plan does. */
   showMarkAsDone: boolean;
   onRemove: (workout: IWorkout) => void;
 }
@@ -23,7 +22,6 @@ const PlanCard = ({ workout, showMarkAsDone, onRemove }: IPlanCardProps) => {
         done ? "border-acid/60" : "border-line"
       }`}
     >
-      {/* Thumbnail */}
       <div className="relative h-32 w-full shrink-0 overflow-hidden rounded-xl bg-raised sm:h-24 sm:w-32">
         <Image
           src={workout.image}
@@ -34,7 +32,6 @@ const PlanCard = ({ workout, showMarkAsDone, onRemove }: IPlanCardProps) => {
         />
       </div>
 
-      {/* Copy + stats */}
       <div className="flex-1">
         <div className="flex flex-wrap items-center gap-3">
           <h3 className="display text-lg text-white">{workout.name}</h3>
@@ -66,7 +63,6 @@ const PlanCard = ({ workout, showMarkAsDone, onRemove }: IPlanCardProps) => {
         </div>
       </div>
 
-      {/* Actions */}
       <div className="flex flex-wrap items-center gap-2">
         <Link
           href={`/workout/${workout.id}`}

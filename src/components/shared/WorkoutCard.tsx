@@ -9,7 +9,6 @@ const WorkoutCard = ({ workout }: { workout: IWorkout }) => {
       href={`/workout/${workout.id}`}
       className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition hover:-translate-y-1 hover:border-acid"
     >
-      {/* Illustration */}
       <div className="relative h-52 w-full overflow-hidden bg-raised">
         <Image
           src={workout.image}
@@ -21,7 +20,7 @@ const WorkoutCard = ({ workout }: { workout: IWorkout }) => {
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-5">
-        {/* Category tag pills */}
+        {/* muscle group pills */}
         <div className="flex flex-wrap gap-2">
           {workout.muscleGroups.map((group) => (
             <span
@@ -33,13 +32,11 @@ const WorkoutCard = ({ workout }: { workout: IWorkout }) => {
           ))}
         </div>
 
-        {/* Name */}
         <h3 className="display text-xl text-white">{workout.name}</h3>
 
-        {/* Equipment */}
         <p className="text-sm text-muted">{workout.equipment}</p>
 
-        {/* Stats row */}
+        {/* duration, calories, rating */}
         <div className="mt-auto flex items-center gap-4 border-t border-line pt-4 text-sm text-muted">
           <span className="flex items-center gap-1.5">
             <FiClock className="text-acid" />

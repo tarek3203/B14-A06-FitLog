@@ -26,7 +26,7 @@ interface IPlanContext {
   plan: IWorkout[];
   saved: IWorkout[];
   doneIds: number[];
-  /** False until localStorage has been read, so lists can show a loading state. */
+  // false until localStorage has been read
   ready: boolean;
   metrics: IPlanMetrics;
   isInPlan: (id: number) => boolean;
@@ -57,20 +57,23 @@ const PlanProvider = ({ children }: { children: ReactNode }) => {
   const [doneIds, setDoneIds] = useState<number[]>([]);
   const [ready, setReady] = useState(false);
 
-  // Read persisted state after mount only. Reading during render would make the
-  // server HTML and the first client render disagree and crash the page reload.
+  // load the saved state after mount. reading it during render would make the
+  // server html and the first client render disagree and break the reload.
   useEffect(() => {
     try {
       const stored = window.localStorage.getItem(STORAGE_KEY);
 
       if (stored) {
         const parsed = JSON.parse(stored);
+
+        /* eslint-disable react-hooks/set-state-in-effect */
         setPlan(parsed.plan ?? []);
         setSaved(parsed.saved ?? []);
         setDoneIds(parsed.doneIds ?? []);
+        /* eslint-enable react-hooks/set-state-in-effect */
       }
     } catch {
-      // Corrupt or unavailable storage just means we start empty.
+      // broken or blocked storage just means we start empty
     }
 
     setReady(true);
@@ -85,7 +88,7 @@ const PlanProvider = ({ children }: { children: ReactNode }) => {
         JSON.stringify({ plan, saved, doneIds }),
       );
     } catch {
-      // Ignore quota / private-mode failures.
+      // ignore quota and private mode errors
     }
   }, [plan, saved, doneIds, ready]);
 
@@ -112,7 +115,7 @@ const PlanProvider = ({ children }: { children: ReactNode }) => {
       }
 
       if (plan.length >= PLAN_LIMIT) {
-        toast.error(`Today's plan is full — ${PLAN_LIMIT} lifts max`);
+        toast.error(`Today's plan is full, ${PLAN_LIMIT} lifts max`);
         return;
       }
 
@@ -166,7 +169,7 @@ const PlanProvider = ({ children }: { children: ReactNode }) => {
     toast.success(`${workout.name} marked as done`);
   }, []);
 
-  // Metrics track today's plan only, and recompute as items come and go.
+  // the numbers only count today's plan, not the saved list
   const metrics = useMemo<IPlanMetrics>(
     () => ({
       exercises: plan.length,

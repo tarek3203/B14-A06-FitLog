@@ -14,7 +14,7 @@ const sortOptions: { value: SortKey; label: string }[] = [
 const Library = ({ workouts }: { workouts: IWorkout[] }) => {
   const [sortBy, setSortBy] = useState<SortKey>("duration");
 
-  // Highest-first on every key: longest session, biggest burn, best rated.
+  // biggest first on all three: longest, hardest, best rated
   const sortedWorkouts = useMemo(() => {
     const copy = [...workouts];
 
@@ -35,7 +35,7 @@ const Library = ({ workouts }: { workouts: IWorkout[] }) => {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="display text-3xl text-white sm:text-4xl">
-              The Library
+              THE LIBRARY
             </h2>
 
             <p className="mt-2 text-muted">
@@ -43,7 +43,6 @@ const Library = ({ workouts }: { workouts: IWorkout[] }) => {
             </p>
           </div>
 
-          {/* Sort dropdown */}
           <div className="relative w-full sm:w-56">
             <label
               htmlFor="sort-by"
@@ -69,7 +68,7 @@ const Library = ({ workouts }: { workouts: IWorkout[] }) => {
           </div>
         </div>
 
-        {/* 3x4 grid on large screens, collapsing down on smaller ones */}
+        {/* 3 across on desktop, 2 on tablet, 1 on mobile */}
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {sortedWorkouts.map((workout) => (
             <WorkoutCard key={workout.id} workout={workout} />

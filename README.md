@@ -1,80 +1,62 @@
-# 💪 FitLog — Workout Library
+# Fit Log
 
-A dark, no-nonsense gym companion built with the Next.js App Router. Browse a
-library of twelve lifts, open any one for full coaching detail, lock it into
-today's plan, and watch the session's volume add up live.
+Fit Log is a workout library for the gym. You browse twelve lifts, open any one
+to read the sets, reps and full instructions, then add it to today's plan or
+save it for later. The plan page keeps a running total of how much work you have
+lined up.
 
-**Live site:** _pending deployment_
-**Repository:** https://github.com/tarek3203/B14-A06-FitLog
+**Live site:** _add after deploy_
 
----
+## Technology used
 
-## 🛠️ Technologies Used
+- Next.js 16 with the App Router
+- TypeScript
+- Tailwind CSS v4 + DaisyUI
+- React Context for the plan and saved lists
+- React Toastify
+- React Icons
 
-| Technology | Purpose |
+## Features
+
+1. **Twelve lifts you can sort.** All the workout data comes from the Fit Log
+   API and shows up as a card grid. The Sort By dropdown reorders the list by
+   duration, calories or rating without reloading anything.
+2. **A details page for every lift.** Each workout has its own page with the
+   image, muscle group tags, a specs panel for equipment, difficulty, sets,
+   reps, duration, calories and rating, plus the four numbered instructions.
+3. **Today's plan with a five lift cap.** Adding a workout bumps the Plan
+   counter in the navbar straight away. The same lift cannot go in twice and the
+   sixth one is refused, both with a toast explaining why.
+4. **Live totals.** The plan page adds up exercises, minutes and calories from
+   whatever is in the plan, and the numbers change as soon as you add or remove
+   something.
+5. **Save for later, mark as done, remove.** Saved lifts get their own tab.
+   Anything in today's plan can be ticked off or removed with the ✕ button, and
+   each action shows a toast.
+6. **It survives a refresh.** The plan, the saved list and the done ticks are
+   kept in localStorage and read back after the page mounts, so reloading any
+   route does not wipe your session.
+7. **Proper 404s.** A bad URL and a workout id that does not exist both land on
+   the same custom not found page.
+
+## Pages
+
+| Route | What it shows |
 | --- | --- |
-| **Next.js 16 (App Router)** | Routing, server components, static pre-rendering |
-| **TypeScript** | Typed workout model shared across every component |
-| **Tailwind CSS 4** | Utility styling and the responsive layout system |
-| **daisyUI 5** | Component primitives on top of Tailwind |
-| **React Context API** | Shared plan / saved state across pages |
-| **react-toastify** | Toast notifications for every plan action |
-| **react-icons** | Stat, action, and navigation icons |
+| `/` | Banner and the full workout library |
+| `/workout/[id]` | Details for one workout |
+| `/my-plan` | Today's Plan and Saved tabs with the totals |
 
----
+## The API
 
-## ✨ Key Features
+- All workouts: `https://api.abcz.workers.dev/api/fitlog`
+- One workout: `https://api.abcz.workers.dev/api/fitlog/1`
 
-1. **Twelve-lift library with live sorting** — every workout is fetched from the
-   FitLog API and rendered as a responsive card grid that re-sorts instantly by
-   duration, calories, or rating.
-2. **Detail page for every workout** — a two-column layout with a key-specs
-   panel (equipment, difficulty, sets, reps, duration, calories, rating) and the
-   full numbered instruction list, statically pre-rendered for all twelve ids.
-3. **Today's Plan with a five-lift cap** — add a workout from its detail page and
-   the navbar counter updates immediately; the plan refuses a sixth lift and
-   blocks duplicates, each with its own toast.
-4. **Live session metrics** — the My Plan page totals exercises, minutes, and
-   calories from the current plan and recomputes them as items come and go.
-5. **Save for later, mark as done, remove** — a separate Saved tab, a done state
-   on any planned lift, and per-item removal, all confirmed by toasts.
-6. **Survives a reload** — plan, saved list, and done state persist in
-   `localStorage` and are rehydrated after mount, so refreshing any route keeps
-   your session intact.
-7. **Real 404 handling** — unknown routes *and* invalid workout ids both render
-   the custom not-found page with a genuine 404 status.
-
----
-
-## 🧭 Routes
-
-| Route | Description |
-| --- | --- |
-| `/` | Hero + the full workout library with the sort control |
-| `/workout/[id]` | Detail page for a single workout |
-| `/my-plan` | Today's Plan and Saved tabs, metrics, and item actions |
-| _anything else_ | Custom 404 page |
-
----
-
-## 🚀 Running Locally
+## Run it locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
----
-
-## 📡 Data Source
-
-All workout data comes from the FitLog API:
-
-- All workouts — `https://api.abcz.workers.dev/api/fitlog`
-- Single workout — `https://api.abcz.workers.dev/api/fitlog/:id`
-
----
-
-Built by **Tariq Bin Bashar** for Programming Hero B14 — Assignment 6.
+Then open http://localhost:3000.

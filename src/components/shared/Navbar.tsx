@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-ink/95 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-        {/* Left — brand */}
+        {/* brand */}
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.png"
@@ -44,7 +44,7 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Center — navigation */}
+        {/* nav links */}
         <ul className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -55,7 +55,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Right — status badges, both routed to the plan page */}
+        {/* both counters go to the plan page */}
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/my-plan"
@@ -82,7 +82,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile menu */}
+      {/* mobile dropdown */}
       {menuOpen && (
         <ul className="flex flex-col gap-4 border-t border-line px-4 py-4 md:hidden">
           {navLinks.map((link) => (

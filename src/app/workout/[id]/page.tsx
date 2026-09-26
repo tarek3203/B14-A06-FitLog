@@ -7,7 +7,7 @@ interface IWorkoutDetailsPageProps {
   params: Promise<{ id: string }>;
 }
 
-// Pre-render all twelve detail pages at build time (Module 35 pattern).
+// build all twelve detail pages ahead of time
 export const generateStaticParams = async () => {
   const workouts = await getWorkouts();
 
@@ -18,7 +18,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
   const { id } = await params;
   const workout = await getWorkout(id);
 
-  // Unknown id falls through to the 404 page.
+  // unknown id falls through to the 404 page
   if (!workout) {
     notFound();
   }
@@ -36,7 +36,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
       <div className="grid gap-10 lg:grid-cols-2">
-        {/* Left — visual */}
+        {/* left side image */}
         <div className="relative h-80 w-full overflow-hidden rounded-3xl border border-line bg-surface sm:h-[30rem] lg:h-full lg:min-h-[34rem]">
           <Image
             src={workout.image}
@@ -48,7 +48,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
           />
         </div>
 
-        {/* Right — details */}
+        {/* right side details */}
         <div>
           <h1 className="display text-3xl text-white sm:text-4xl lg:text-5xl">
             {workout.name}
@@ -56,7 +56,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
 
           <p className="mt-4 leading-7 text-muted">{workout.description}</p>
 
-          {/* Category tags */}
+          {/* muscle group tags */}
           <div className="mt-5 flex flex-wrap gap-2">
             {workout.muscleGroups.map((group) => (
               <span
@@ -68,7 +68,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
             ))}
           </div>
 
-          {/* Key specs */}
+          {/* key specs */}
           <div className="mt-8 overflow-hidden rounded-2xl border border-line bg-surface">
             {specs.map((spec) => (
               <div
@@ -86,9 +86,8 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
             ))}
           </div>
 
-          {/* Instructions */}
           <div className="mt-8">
-            <h2 className="display text-xl text-white">Instructions</h2>
+            <h2 className="display text-xl text-white">INSTRUCTIONS</h2>
 
             <ol className="mt-4 space-y-3">
               {workout.instructions.map((step, index) => (
